@@ -1,6 +1,4 @@
-#  Systems & Network Automation 
-
-## Hey there! I'm Kjetil 👋
+# Hey there! I'm Kjetil 👋
 
 ### 🛠 What i use
 
