@@ -1,82 +1,44 @@
-# 🖥️ Home Lab Network Setup
+#  Systems & Network Automation 
 
-![homelab drawio](https://github.com/user-attachments/assets/c4037cf7-ca96-4c7f-be62-3ac43b9f0053)
+## Hey there! I'm Kjetil 👋
 
----
+### 🛠 What i use
 
-## 🌐 Network Notes
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Ansible](https://img.shields.io/badge/ansible-%231A1918.svg?style=for-the-badge&logo=ansible&logoColor=white)
+![Microsoft Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Cisco](https://img.shields.io/badge/Cisco-%23049fd9.svg?style=for-the-badge&logo=cisco&logoColor=black)
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
 
-### 1. **Network Summary**
-- **Network Address**: `192.168.0.0/24`
-- **Subnet Mask**: `255.255.255.0`
-- **Default Gateway**: `192.168.0.1`
-- **Primary DNS**: `192.168.0.109` (*DC01 - DNS Server*)
+### 🌱 Learning & Project Development
 
----
+**Current Focus**: Building practical skills in network automation, cloud technologies, and system administration
 
-### 2. **IP Address Allocation**
-| Device                  | IP Address       | Notes                           |
-|-------------------------|------------------|---------------------------------|
-| **Router**              | `192.168.0.1`    | Default gateway                 |
-| **Personal Computer**              | `192.168.0.104`    | Computer outside Domain                |
-| **Hyper-V Host**        | `192.168.0.105`  | Hyper-V host                    |
-| **DC01 (Windows Server 2025)** | `192.168.0.109`  | Domain Controller, DNS, DHCP   |
-| **VM01 (Windows 11)**   | `192.168.0.122`  | DHCP (Client for AD testing)    |
-| **UBUNTU01 (Ubuntu 22.04)** | `192.168.0.123`  | Static (Plex/Ansible Server)    |
+**Project Goals**:
+- Create hands-on projects to develop automation skills
+- Explore and implement infrastructure as code
+- Build a comprehensive toolkit for network and system management
 
----
+### 🚧 Repository Overview
 
-### 3. **Hyper-V Switch Configuration**
-- **External Virtual Switch**:
-  - Used by **DC01** for external network connectivity.
-  - Allows **DC01** to act as the gateway for other VMs to access the internet.
-  
-- **Internal Virtual Switch**:
-  - Used for internal traffic between VMs (e.g., **VM01** ↔ **UBUNTU01** ↔ **DC01**).
-  - VMs use **DC01** as the gateway to reach the internet.
+This GitHub space is my learning playground, where I'm documenting my journey in:
+- Network automation scripts
+- Cloud infrastructure tools
+- System management utilities
+- Home lab experiments
 
----
+**Note**: Repositories are works in progress and are continuously being updated.
 
-### 4. **DHCP Server Configuration (DC01)**
-- **DHCP Role**: Installed on **DC01**
-- **Scope Range**: `192.168.0.120 - 192.168.0.150`
-- **Default Gateway (For VMs)**: `192.168.0.109` (*DC01*)
-- **DNS Server**: `192.168.0.109`
+### 🏆 Current Certifications
+- CCNA v1.1
+- CompTIA Network+
+- Azure Administrator Associate
 
----
 
-### 5. **Routing and Internet Access**
-- **VM Internet Access**:
-  - All other VMs (e.g., **VM01**, **UBUNTU01**) route traffic through **DC01** (`192.168.0.109`).
-  - **DC01** acts as the default gateway for these VMs.
+### 🤝 Let's Connect
+- 💼 [LinkedIn Profile](https://www.linkedin.com/in/kjetil-melby/)
+---------
 
----
-
-### 6. **Roles and Responsibilities**
-| **Device**       | **Roles**                                           |
-|------------------|-----------------------------------------------------|
-| **DC01**         | - Domain Controller (Active Directory)              |
-|                  | - DNS Server                                        |
-|                  | - DHCP Server                                       |
-|                  | - Default Gateway for Hyper-V VMs                   |
-| **VM01**         | - Client machine for AD logins and GPO testing      |
-| **UBUNTU01**     | - Plex Media Server                                 |
-|                  | - Ansible Server                                    |
-
----
-
-### 7. **Purpose of the Lab**
-This lab simulates a small-scale network environment to test and validate:
-- ✅ **Active Directory** and **Group Policy Objects (GPOs)**.
-- ✅ **DNS and DHCP** server configurations.
-- ✅ **Internal and external virtual network communication**.
-- ✅ Routing traffic through a **Domain Controller**.
-- ✅ Ubuntu-based **media/file server** functionality.
-
----
-
-### 🎯 Key Goals
-- Gain hands-on experience with **Windows Server roles**.
-- Configure and manage **virtual switches** in **Hyper-V**.
-- Implement **DHCP** for dynamic IP assignment.
-- Set up a **media server** and test real-world use cases.
